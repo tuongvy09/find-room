@@ -4,12 +4,17 @@ import {
   Badge,
   Box,
   Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
   Menu,
   MenuItem,
   Toolbar,
   Typography,
 } from "@mui/material";
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { createAxios } from "../../../createInstance";
@@ -35,8 +40,9 @@ const Header = () => {
   const notificationCount = notificationsList.filter(
     (notification) => notification.status === "unread",
   ).length;
-  
+
   const totalNotifications = notificationsList.length;
+  const [openDialog, setOpenDialog] = useState(false);
 
   useEffect(() => {
     if (currentUser && Array.isArray(currentUser.notifications)) {
@@ -72,11 +78,15 @@ const Header = () => {
 
   const handleAddPost = () => {
     if (!currentUser) {
-      alert("Bạn cần đăng nhập để đăng tin mới.");
-      navigate("/login");
+      setOpenDialog(true);
     } else {
       navigate("/AddPost");
     }
+  };
+  
+  const handleConfirmLogin = () => {
+    setOpenDialog(false);
+    navigate("/login");
   };
 
   const markAsRead = (notificationId) => {
@@ -89,7 +99,12 @@ const Header = () => {
     );
   };
 
+  const handleCloseDialog = () => {
+    setOpenDialog(false);
+  };
+
   return (
+    <>
     <AppBar position="static" className="user-header-app-bar">
       <Toolbar className="user-header-tool-bar">
         <Typography
@@ -178,6 +193,23 @@ const Header = () => {
         onUpdateUnreadCount={handleUpdateUnreadCount}
       />
     </AppBar>
+    <Dialog open={openDialog} onClose={handleCloseDialog}>
+    <DialogTitle>Xác Nhận</DialogTitle>
+    <DialogContent>
+      <DialogContentText>
+        Bạn có muốn di chuyển đến trang đăng nhập để tiếp tục
+      </DialogContentText>
+    </DialogContent>
+    <DialogActions>
+      <Button onClick={handleCloseDialog} color="primary">
+        Hủy
+      </Button>
+      <Button onClick={handleConfirmLogin} color="secondary">
+        Xác nhận
+      </Button>
+    </DialogActions>
+  </Dialog>
+  </>
   );
 };
 
