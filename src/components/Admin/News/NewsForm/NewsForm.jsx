@@ -12,6 +12,7 @@ import { createNews } from "../../../../redux/newsAPI";
 import "./NewsForm.css";
 
 const NewsForm = () => {
+  document.title = "Thêm tin tức";
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [content, setContent] = useState("");

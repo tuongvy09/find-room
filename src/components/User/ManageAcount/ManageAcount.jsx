@@ -11,6 +11,7 @@ import Sidebar from "./Sidebar";
 import UpdatePost from "./UpdatePost";
 
 const ManageAcount = () => {
+  document.title = "Quản lý tài khoản";
   const currentUser = useSelector((state) => state.auth.login.currentUser);
   const dispatch = useDispatch();
   const selectedMenu = useSelector((state) => state.menu.selectedMenu);

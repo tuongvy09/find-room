@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import "./NewsListUser.css";
 
 const NewsListUser = () => {
+  document.title = "Danh sách tin tức";
   const [newsList, setNewsList] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);

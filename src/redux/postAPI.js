@@ -284,7 +284,8 @@ export const getTopProvinces = async (token) => {
 };
 
 // API URL cho reviews
-const REVIEW_API_URL = "https://befindrentalrooms-production.up.railway.app/v1/reviews/";
+const REVIEW_API_URL =
+  "https://befindrentalrooms-production.up.railway.app/v1/reviews/";
 
 export const createReview = async (postId, reviewData, token) => {
   try {

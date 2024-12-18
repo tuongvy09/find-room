@@ -14,6 +14,7 @@ import NewsDetail from "../NewsDetail/NewsDetail";
 import "./NewsList.css";
 
 const NewsList = () => {
+  document.title = "Danh sách tin tức";
   const dispatch = useDispatch();
   const { newsList, isFetching, error } = useSelector((state) => state.news);
   const [selectedNews, setSelectedNews] = useState(null);

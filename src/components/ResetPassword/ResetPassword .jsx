@@ -5,6 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 
 // import './ResetPassword.css';
 const ResetPassword = () => {
+  document.title = "Đặt lại mật khẩu";
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [message, setMessage] = useState("");

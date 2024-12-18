@@ -8,6 +8,7 @@ import RoomPost from "../Post/RoomPost";
 import "./FavoritePosts.css";
 
 const FavoritePosts = () => {
+  document.title = "Danh sách yêu thích";
   const [favorites, setFavorites] = useState([]);
   const [loading, setLoading] = useState(true);
   const user = useSelector((state) => state.auth.login.currentUser);

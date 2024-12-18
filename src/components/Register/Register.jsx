@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { registerUser } from "../../redux/apiRequest";
 
 const Register = () => {
+  document.title = "Đăng ký";
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");

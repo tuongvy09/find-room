@@ -9,6 +9,7 @@ import { setSelectedMenu } from "../../../../redux/menuSlice";
 import "./NewsDetail.css";
 
 const NewsDetail = () => {
+  document.title = "Chi tiết tin tức";
   const { id } = useParams();
   const [news, setNews] = useState(null);
   const [loading, setLoading] = useState(true);

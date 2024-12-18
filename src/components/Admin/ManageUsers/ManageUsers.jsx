@@ -26,6 +26,7 @@ import { setSelectedMenu } from "../../../redux/menuSlice";
 import "./ManageUsers.css";
 
 const ManageUsers = () => {
+  document.title = "Quản lý người dùng";
   const user = useSelector((state) => state.auth.login?.currentUser);
   const userList = useSelector((state) => state.users.users?.allUsers);
   const dispatch = useDispatch();

@@ -24,6 +24,7 @@ import "./ManagePostAdmin.css";
 import RoomPostManage from "./RoomPostManage";
 
 const ManagePostAdmin = () => {
+  document.title = "Quản lý bài đăng";
   const [filter, setFilter] = useState("Tất cả");
   const [anchorEl, setAnchorEl] = useState(null);
   const [anchorElUpdateDate, setAnchorElUpdateDate] = useState(null);

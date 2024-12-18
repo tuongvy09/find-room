@@ -31,6 +31,7 @@ ChartJS.register(
 );
 
 const AdminDashboard = () => {
+  document.title = "Thống kê";
   const user = useSelector((state) => state.auth.login?.currentUser);
   const [chartData, setChartData] = useState(null);
   const [chartTitle, setChartTitle] = useState("");

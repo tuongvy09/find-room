@@ -19,6 +19,7 @@ import { getPostDetail, updatePost } from "../../../redux/postAPI";
 import "./UpdatePost.css";
 
 const UpdatePost = ({ postId }) => {
+  document.title = "Cập nhật bài đăng";
   const [post, setPost] = useState(null);
   const [error, setError] = useState(null);
   const [title, setTitle] = useState("");

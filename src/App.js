@@ -59,26 +59,32 @@ function App() {
                 </>
               }
             />
-            <Route path="/posts" element={
-              <>
-                <PostsPage />
-                <Footer />
-              </>
-            }
+            <Route
+              path="/posts"
+              element={
+                <>
+                  <PostsPage />
+                  <Footer />
+                </>
+              }
             />
-            <Route path="/CanHoPost" element={
-              <>
-                <PostsPage />
-                <Footer />
-              </>
-            }
+            <Route
+              path="/CanHoPost"
+              element={
+                <>
+                  <PostsPage />
+                  <Footer />
+                </>
+              }
             />
-            <Route path="/VanPhongPost" element={
-              <>
-                <PostsPage />
-                <Footer />
-              </>
-            }
+            <Route
+              path="/VanPhongPost"
+              element={
+                <>
+                  <PostsPage />
+                  <Footer />
+                </>
+              }
             />
             <Route
               path="/news"
@@ -91,7 +97,14 @@ function App() {
                 </>
               }
             />
-            <Route path="/admin-dashboard" element={<><HomeAdmin /> <Footer /></>} />
+            <Route
+              path="/admin-dashboard"
+              element={
+                <>
+                  <HomeAdmin /> <Footer />
+                </>
+              }
+            />
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
@@ -116,9 +129,30 @@ function App() {
                 </>
               }
             />
-            <Route path="/posts/:id" element={<><PostDetail /> <Footer /></>} />
-            <Route path="/managerAc" element={<><ManageAcount /> <Footer /></>} />
-            <Route path="/update-post/:id" element={<><UpdatePost /> <Footer /></>} />
+            <Route
+              path="/posts/:id"
+              element={
+                <>
+                  <PostDetail /> <Footer />
+                </>
+              }
+            />
+            <Route
+              path="/managerAc"
+              element={
+                <>
+                  <ManageAcount /> <Footer />
+                </>
+              }
+            />
+            <Route
+              path="/update-post/:id"
+              element={
+                <>
+                  <UpdatePost /> <Footer />
+                </>
+              }
+            />
             <Route
               path="/manage-news/edit/:id"
               element={
@@ -180,9 +214,30 @@ function App() {
               }
             >
               {/* Các Route con của /manage-news */}
-              <Route path="list" element={<><NewsList /> <Footer /></>} />
-              <Route path="add" element={<><NewsForm /> <Footer /></>} />
-              <Route path=":id" element={<><NewsDetail /> <Footer /></>} />
+              <Route
+                path="list"
+                element={
+                  <>
+                    <NewsList /> <Footer />
+                  </>
+                }
+              />
+              <Route
+                path="add"
+                element={
+                  <>
+                    <NewsForm /> <Footer />
+                  </>
+                }
+              />
+              <Route
+                path=":id"
+                element={
+                  <>
+                    <NewsDetail /> <Footer />
+                  </>
+                }
+              />
             </Route>
             <Route
               path="/manage-posts"
