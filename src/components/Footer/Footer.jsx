@@ -50,18 +50,27 @@ const Footer = () => {
 
       <Box className="footer-links">
         <Typography variant="h6">Liên kết</Typography>
-        <Box className="footer-link-item">
+        <Box
+          className="footer-link-item"
+          onClick={() => window.open("/about-us")}
+          style={{ cursor: "pointer" }}
+        >
           <Info style={{ color: "#4caf50", marginRight: "10px" }} />
           <Typography variant="body2">Về chúng tôi</Typography>
         </Box>
         <Box
           className="footer-link-item"
           onClick={() => window.open("/TinTuc")}
+          style={{ cursor: "pointer" }}
         >
           <NewReleases style={{ color: "#4caf50", marginRight: "10px" }} />
           <Typography variant="body2">Tin tức mới</Typography>
         </Box>
-        <Box className="footer-link-item">
+        <Box
+          className="footer-link-item"
+          onClick={() => window.open("/policy-terms")}
+          style={{ cursor: "pointer" }}
+        >
           <Policy style={{ color: "#4caf50", marginRight: "10px" }} />
           <Typography variant="body2">Điều khoản chính sách</Typography>
         </Box>

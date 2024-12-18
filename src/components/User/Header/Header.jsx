@@ -16,6 +16,7 @@ import { createAxios } from "../../../createInstance";
 import { logout } from "../../../redux/apiRequest";
 import { logoutSuccess } from "../../../redux/authSlice";
 import Notification from "../Notification/Notification";
+import Swal from "sweetalert2";
 import "./Header.css";
 
 const Header = () => {
@@ -72,8 +73,18 @@ const Header = () => {
 
   const handleAddPost = () => {
     if (!currentUser) {
-      alert("Bạn cần đăng nhập để đăng tin mới.");
-      navigate("/login");
+      Swal.fire({
+        title: "Cảnh báo!",
+        text: "Bạn cần đăng nhập để đăng tin mới.",
+        icon: "warning",
+        confirmButtonText: "Đăng nhập",
+        showCancelButton: true,
+        cancelButtonText: "Hủy",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/login");
+        }
+      });
     } else {
       navigate("/AddPost");
     }

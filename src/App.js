@@ -30,6 +30,8 @@ import PostDetail from "./components/User/Post/PostDetail";
 import PostsPage from "./components/User/Post/PostPage";
 import SearchPosts from "./components/User/Search/searchPosts";
 import SearchResultsPage from "./components/User/Search/searchResultPage";
+import AboutUs from "./components/User/AboutUs/AboutUs";
+import PolicyTerms from "./components/User/PolicyTerms/PolicyTerms";
 
 function App() {
   return (
@@ -109,6 +111,26 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/reset-password/:token" element={<ResetPassword />} />
+            <Route
+              path="/about-us"
+              element={
+                <>
+                  <Header />
+                  <AboutUs />
+                  <Footer />
+                </>
+              }
+            />
+            <Route
+              path="/policy-terms"
+              element={
+                <>
+                  <Header />
+                  <PolicyTerms />
+                  <Footer />
+                </>
+              }
+            />
             <Route
               path="/chang-pass"
               element={
