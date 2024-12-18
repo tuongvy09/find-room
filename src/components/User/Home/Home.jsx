@@ -13,7 +13,7 @@ import Introduction2 from "./Introduction2";
 import ListNewsHome from "./ListNewsHome";
 
 const Home = () => {
-  document.title = "Trang chủ";
+  document.title = "Phòng trọ xinh";
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
   const [favorites, setFavorites] = useState([]);
