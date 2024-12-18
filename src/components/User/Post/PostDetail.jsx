@@ -34,6 +34,7 @@ import ReviewsList from "../Review/ReviewList/ReviewsList";
 import "./PostDetail.css";
 
 const PostDetail = ({ onToggleFavorite }) => {
+  document.title = "Chi tiết bài đăng";
   const { id } = useParams();
   const [post, setPost] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);

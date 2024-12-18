@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import "./AboutUs.css";
 import brandStory from "../../../assets/images/brandStory.jpg";
-import aboutUsImage from "../../../assets/images/luckycat.png";
-import teamImage from "../../../assets/images/teamImage.jpg";
-import productImage1 from "../../../assets/images/introPic2.png";
 import productImage2 from "../../../assets/images/house.png";
 import productImage3 from "../../../assets/images/imgInImgage.png";
+import productImage1 from "../../../assets/images/introPic2.png";
+import aboutUsImage from "../../../assets/images/luckycat.png";
+import teamImage from "../../../assets/images/teamImage.jpg";
+import "./AboutUs.css";
 
 const AboutUs = () => {
   document.title = "Về chúng tôi";
@@ -55,7 +55,7 @@ const AboutUs = () => {
       </div>
 
       {/* TẦM NHÌN VÀ SỨ MỆNH */}
-      <h2 className="section-subtitle">TẦM NHÌN VÀ SỨ MỆNH</h2>
+      <h1 className="section-title">TẦM NHÌN VÀ SỨ MỆNH</h1>
       <div className="aboutus-content">
         <div className="aboutus-text">
           <p>
@@ -120,38 +120,33 @@ const AboutUs = () => {
       </div>
 
       {/* HỆ SINH THÁI SẢN PHẨM */}
-      <h1 className="section-title">HỆ SINH THÁI SẢN PHẨM</h1>
-      <div className="aboutus-content">
-        <div className="aboutus-text">
-          <p>
-            Phòng Trọ Xinh mang đến một hệ sinh thái toàn diện và độc đáo, bao
-            gồm:
-          </p>
-          <ul>
-            <li>
-              <strong>Công cụ tìm kiếm phòng trọ thông minh:</strong> Lọc phòng
-              theo tiêu chí rõ ràng như vị trí, giá cả, diện tích và tiện nghi.
-            </li>
-            <li>
-              <strong>Đăng tin dễ dàng:</strong> Hỗ trợ chủ nhà đăng tin miễn
-              phí với các công cụ tối ưu để tiếp cận khách hàng nhanh chóng.
-            </li>
-            <li>
-              <strong>Dữ liệu thị trường cập nhật:</strong> Cung cấp thông tin
-              chính xác về thị trường thuê phòng trọ, giúp bạn đưa ra quyết định
-              phù hợp.
-            </li>
-          </ul>
+        <h1 className="section-title">HỆ SINH THÁI SẢN PHẨM</h1>
+        <div className="aboutus-content">
+          <div className="aboutus-text">
+            <p>
+          Phòng Trọ Xinh mang đến một hệ sinh thái toàn diện và độc đáo, bao gồm:
+            </p>
+            <ul className="product-features">
+          <li>
+            • <strong><b>Công cụ tìm kiếm phòng trọ thông minh:</b></strong> Lọc phòng theo tiêu chí rõ ràng như vị trí, giá cả, diện tích và tiện nghi.
+          </li>
+          <li>
+            • <strong><b>Đăng tin dễ dàng:</b></strong> Hỗ trợ chủ nhà đăng tin miễn phí với các công cụ tối ưu để tiếp cận khách hàng nhanh chóng.
+          </li>
+          <li>
+            • <strong><b>Dữ liệu thị trường cập nhật:</b></strong> Cung cấp thông tin chính xác về thị trường thuê phòng trọ, giúp bạn đưa ra quyết định phù hợp.
+          </li>
+            </ul>
+          </div>
+          <div className="product-images">
+            <img src={productImage1} alt="Sản phẩm 1" className="product-image" />
+            <img src={productImage2} alt="Sản phẩm 2" className="product-image" />
+            <img src={productImage3} alt="Sản phẩm 3" className="product-image" />
+          </div>
         </div>
-        <div className="product-images">
-          <img src={productImage1} alt="Sản phẩm 1" className="product-image" />
-          <img src={productImage2} alt="Sản phẩm 2" className="product-image" />
-          <img src={productImage3} alt="Sản phẩm 3" className="product-image" />
-        </div>
-      </div>
 
-      {/* GIẢI PHÁP NGHIÊN CỨU THỊ TRƯỜNG */}
-      <div className="aboutus-content">
+        {/* GIẢI PHÁP NGHIÊN CỨU THỊ TRƯỜNG */}
+      <div className="aboutus-text">
         <h2>Giải pháp nghiên cứu thị trường</h2>
         <p>
           Với nền tảng dữ liệu mạnh mẽ, <span>Phòng Trọ Xinh</span> giúp bạn nắm
@@ -163,7 +158,7 @@ const AboutUs = () => {
       </div>
 
       {/* CAM KẾT */}
-      <div className="commitment">
+      <div className="aboutus-text">
         <h2>Cam kết của chúng tôi</h2>
         <ul>
           <li>✅ Tiện lợi: Tìm phòng trọ phù hợp chỉ trong vài cú click.</li>

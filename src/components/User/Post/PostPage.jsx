@@ -54,10 +54,13 @@ const PostsPage = () => {
   let posts = [];
   if (location.pathname === "/posts") {
     posts = category1Posts;
+    document.title = "Cho thuê nhà trọ, phòng trọ";
   } else if (location.pathname === "/CanHoPost") {
     posts = category2Posts;
+    document.title = "Cho thuê căn hộ";
   } else if (location.pathname === "/VanPhongPost") {
     posts = category3Posts;
+    document.title = "Cho thuê mặt bằng, văn phòng";
   }
 
   const handleTitleClick = (id) => {

@@ -22,6 +22,7 @@ import { createPost } from "../../../redux/postAPI";
 import "./AddPost.css";
 
 const SelectWithLabel = ({ label, options, value, onChange }) => {
+  document.title = "Thêm bài đăng mới";
   return (
     <FormControl fullWidth variant="outlined">
       <InputLabel>{label}</InputLabel>
