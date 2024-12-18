@@ -13,6 +13,7 @@ import "./HomeAdmin.css";
 import ManagePostAdmin from "./ManagePostAdmin";
 
 const HomeAdmin = () => {
+  document.title = "Trang chủ";
   const dispatch = useDispatch();
   const selectedMenu = useSelector((state) => state.menu.selectedMenu);
 

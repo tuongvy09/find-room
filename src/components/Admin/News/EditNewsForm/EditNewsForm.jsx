@@ -10,6 +10,7 @@ import { setSelectedMenu } from "../../../../redux/menuSlice";
 import "./EditNewsForm.css";
 
 const EditNewsForm = () => {
+  document.title = "Chỉnh sửa tin tức";
   const { id } = useParams();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");

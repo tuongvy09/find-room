@@ -5,6 +5,7 @@ import "./ChangePassword.css";
 import { useSelector } from "react-redux";
 
 const ChangePassword = () => {
+  document.title = "Đổi mật khẩu";
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");

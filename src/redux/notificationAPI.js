@@ -32,7 +32,8 @@ export const markNotificationAsRead = async (
   accessToken,
   dispatch,
 ) => {
-  axios.defaults.baseURL = "https://befindrentalrooms-production.up.railway.app";
+  axios.defaults.baseURL =
+    "https://befindrentalrooms-production.up.railway.app";
   dispatch(markAsReadStart());
   try {
     console.log("Notification ID:", notificationId);

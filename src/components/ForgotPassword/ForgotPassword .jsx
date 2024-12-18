@@ -4,6 +4,7 @@ import { ToastContainer, toast } from "react-toastify";
 // import './ForgotPassword.css';
 
 const ForgotPassword = () => {
+  document.title = "Quên mật khẩu";
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");

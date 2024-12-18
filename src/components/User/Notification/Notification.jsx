@@ -82,8 +82,8 @@ const Notification = ({
   const sortedNotifications =
     notifications && notifications.length > 0
       ? [...notifications].sort(
-        (a, b) => new Date(b.createdAt) - new Date(a.createdAt),
-      )
+          (a, b) => new Date(b.createdAt) - new Date(a.createdAt),
+        )
       : [];
 
   return (

@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import "./NewsDetailUser.css";
 
 const NewsDetailUser = () => {
+  document.title = "Chi tiết tin tức";
   const { id } = useParams(); // Lấy id từ URL
   const [news, setNews] = useState(null);
   const [loading, setLoading] = useState(true);

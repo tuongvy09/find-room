@@ -23,6 +23,7 @@ import { updateUserProfile } from "../../../redux/apiRequest";
 import "./EditProfile.css";
 
 const EditProfile = ({ user }) => {
+  document.title = "Chỉnh sửa thông tin cá nhân";
   const [picture, setAvatar] = useState(user?.profile?.picture || "");
   const [open, setOpen] = useState(false);
   const [provinces, setProvinces] = useState([]);

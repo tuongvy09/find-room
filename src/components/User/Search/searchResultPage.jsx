@@ -7,6 +7,7 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 
 const SearchResultsPage = () => {
+  document.title = "Kết quả tìm kiếm";
   const location = useLocation();
   const { results, filters } = location.state || { results: [], filters: {} };
 

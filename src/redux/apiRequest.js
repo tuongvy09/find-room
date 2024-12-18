@@ -36,7 +36,8 @@ import {
 const API_URL = "https://befindrentalrooms-production.up.railway.app";
 
 export const loginUser = async (user, dispatch, navigate, setErrorMessage) => {
-  axios.defaults.baseURL = "https://befindrentalrooms-production.up.railway.app";
+  axios.defaults.baseURL =
+    "https://befindrentalrooms-production.up.railway.app";
   dispatch(loginStart());
 
   try {
@@ -93,7 +94,8 @@ export const registerUser = async (
   navigate,
   setErrorMessage,
 ) => {
-  axios.defaults.baseURL = "https://befindrentalrooms-production.up.railway.app";
+  axios.defaults.baseURL =
+    "https://befindrentalrooms-production.up.railway.app";
   dispatch(registerStart());
 
   try {
@@ -149,7 +151,8 @@ export const getAllUsers = async (accessToken, dispatch, axiosJWT) => {
 };
 
 export const deleteUser = async (userId, accessToken, dispatch) => {
-  axios.defaults.baseURL = "https://befindrentalrooms-production.up.railway.app";
+  axios.defaults.baseURL =
+    "https://befindrentalrooms-production.up.railway.app";
   dispatch(deleteUserStart());
   try {
     await axios.delete(`/v1/user/${userId}`, {
@@ -171,7 +174,8 @@ export const deleteUser = async (userId, accessToken, dispatch) => {
 };
 
 export const logout = async (dispatch, id, navigate, accessToken, axiosJWT) => {
-  axiosJWT.defaults.baseURL = "https://befindrentalrooms-production.up.railway.app";
+  axiosJWT.defaults.baseURL =
+    "https://befindrentalrooms-production.up.railway.app";
   dispatch(logoutStart());
   try {
     const res = await axiosJWT.post(
@@ -205,7 +209,8 @@ export const logout = async (dispatch, id, navigate, accessToken, axiosJWT) => {
 };
 
 export const googleLogin = async (tokenId, dispatch, navigate) => {
-  axios.defaults.baseURL = "https://befindrentalrooms-production.up.railway.app";
+  axios.defaults.baseURL =
+    "https://befindrentalrooms-production.up.railway.app";
   dispatch(googleLoginStart());
 
   try {
@@ -245,7 +250,8 @@ export const resetPasswordRequest = async (
   setMessage,
   navigate,
 ) => {
-  axios.defaults.baseURL = "https://befindrentalrooms-production.up.railway.app"; // Địa chỉ API backend
+  axios.defaults.baseURL =
+    "https://befindrentalrooms-production.up.railway.app"; // Địa chỉ API backend
   try {
     const res = await axios.post("/v1/auth/forgot-password", userEmail);
     dispatch(forgotPasswordSuccess());
@@ -264,7 +270,8 @@ export const resetPassword = async (
   setMessage,
   navigate,
 ) => {
-  axios.defaults.baseURL = "https://befindrentalrooms-production.up.railway.app";
+  axios.defaults.baseURL =
+    "https://befindrentalrooms-production.up.railway.app";
   try {
     const res = await axios.post("/v1/auth/reset-password", passwordData);
     setMessage("Mật khẩu đã được thay đổi thành công.");
@@ -282,7 +289,8 @@ export const updateUserProfile = async (
   accessToken,
   dispatch,
 ) => {
-  axios.defaults.baseURL = "https://befindrentalrooms-production.up.railway.app";
+  axios.defaults.baseURL =
+    "https://befindrentalrooms-production.up.railway.app";
   dispatch(loginStart());
 
   try {
@@ -317,7 +325,8 @@ export const updateUserProfile = async (
 };
 
 export const getNotifications = async (accessToken, dispatch) => {
-  axios.defaults.baseURL = "https://befindrentalrooms-production.up.railway.app";
+  axios.defaults.baseURL =
+    "https://befindrentalrooms-production.up.railway.app";
   dispatch(getNotificationsStart());
   try {
     const response = await axios.get("/v1/user/notifications", {
@@ -344,7 +353,8 @@ export const markNotificationAsRead = async (
   accessToken,
   dispatch,
 ) => {
-  axios.defaults.baseURL = "https://befindrentalrooms-production.up.railway.app";
+  axios.defaults.baseURL =
+    "https://befindrentalrooms-production.up.railway.app";
   dispatch(markAsReadStart());
   try {
     const response = await axios.patch(
@@ -376,7 +386,8 @@ export const changePassword = async (
   dispatch,
   setMessage,
 ) => {
-  axios.defaults.baseURL = "https://befindrentalrooms-production.up.railway.app";
+  axios.defaults.baseURL =
+    "https://befindrentalrooms-production.up.railway.app";
 
   try {
     // Gửi yêu cầu thay đổi mật khẩu đến backend
