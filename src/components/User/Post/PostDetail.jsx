@@ -23,7 +23,7 @@ import {
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import { getPostDetail, useFavoriteToggle } from "../../../redux/postAPI";
@@ -32,6 +32,7 @@ import Header from "../Header/Header";
 import AddReviewForm from "../Review/ReviewForm/ReviewForm";
 import ReviewsList from "../Review/ReviewList/ReviewsList";
 import "./PostDetail.css";
+import Swal from "sweetalert2";
 
 const PostDetail = ({ onToggleFavorite }) => {
   document.title = "Chi tiết bài đăng";
@@ -98,6 +99,21 @@ const PostDetail = ({ onToggleFavorite }) => {
 
   const handleToggleFavorite = async () => {
     const isFavorite = favorites.some((fav) => fav._id === id);
+
+    if (!user) {
+      Swal.fire({
+        icon: "warning",
+        title: "Chưa đăng nhập",
+        text: "Vui lòng đăng nhập để thêm bài đăng vào danh sách yêu thích.",
+        confirmButtonText: "Đăng nhập",
+        showCancelButton: true,
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Navigate("/login");
+        }
+      });
+      return;
+    }
 
     try {
       await toggleFavorite(id, isFavorite);

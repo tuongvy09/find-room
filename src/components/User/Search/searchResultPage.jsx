@@ -1,19 +1,20 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 import RoomPost from "../Post/RoomPost";
 import "./searchResultPage.css";
 import { useFavoriteToggle } from "../../../redux/postAPI";
 import axios from "axios";
 import { useSelector } from "react-redux";
+import Swal from "sweetalert2";
 
 const SearchResultsPage = () => {
   document.title = "Kết quả tìm kiếm";
   const location = useLocation();
   const { results, filters } = location.state || { results: [], filters: {} };
-
   const [currentPage, setCurrentPage] = useState(1);
   const newsPerPage = 9;
   const [favorites, setFavorites] = useState([]);
+  const [loading, setLoading] = useState(false);
   const [sortOption, setSortOption] = useState("default");
   const user = useSelector((state) => state.auth.login.currentUser);
   let axiosJWT = axios.create({
@@ -30,12 +31,15 @@ const SearchResultsPage = () => {
   useEffect(() => {
     const fetchFavorites = async () => {
       try {
+        setLoading(true);
         const response = await axiosJWT.get("/v1/posts/favorites", {
           headers: { Authorization: `Bearer ${user?.accessToken}` },
         });
         setFavorites(response.data.favorites);
       } catch (error) {
         console.error("Error fetching favorites:", error);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -45,6 +49,21 @@ const SearchResultsPage = () => {
   }, [user]);
 
   const handleToggleFavorite = (id, isFavorite) => {
+    if (!user) {
+      Swal.fire({
+        icon: "warning",
+        title: "Chưa đăng nhập",
+        text: "Vui lòng đăng nhập để thêm bài đăng vào danh sách yêu thích.",
+        confirmButtonText: "Đăng nhập",
+        showCancelButton: true,
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Navigate("/login");
+        }
+      });
+      return;
+    }
+
     if (!id) {
       console.error("Invalid post ID:", id);
       return;
@@ -97,7 +116,11 @@ const SearchResultsPage = () => {
   return (
     <div className="search-results-page">
       <h2 className="search-results-page__title">Kết Quả Tìm Kiếm</h2>
-      {currentPosts.length > 0 ? (
+      {loading ? (
+        <div className="loading-container">
+          <div className="spinner"></div>
+        </div>
+      ) : currentPosts.length > 0 ? (
         <div className="search-results-page__post-list">
           {currentPosts.map((post) => (
             <RoomPost
