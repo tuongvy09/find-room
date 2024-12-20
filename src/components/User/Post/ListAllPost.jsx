@@ -5,12 +5,15 @@ import "./RoomPost.css";
 import { useFavoriteToggle } from "../../../redux/postAPI";
 import axios from "axios";
 import { useSelector } from "react-redux";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const ListAllPost = ({ posts, handleTitleClick }) => {
   const [favorites, setFavorites] = React.useState([]);
   const [sortOption, setSortOption] = React.useState("default");
   const [currentPage, setCurrentPage] = React.useState(1);
   const user = useSelector((state) => state.auth.login.currentUser);
+  const navigate = useNavigate();
   const postsPerPage = 9;
   let axiosJWT = axios.create({
     baseURL: "https://befindrentalrooms-production.up.railway.app",
@@ -36,6 +39,23 @@ const ListAllPost = ({ posts, handleTitleClick }) => {
   }, [user]);
 
   const handleToggleFavorite = (id, isFavorite) => {
+    if (!user) {
+      // Hiển thị thông báo và chuyển hướng
+      Swal.fire({
+        title: "Chưa đăng nhập",
+        text: "Vui lòng đăng nhập để thêm bài đăng vào yêu thích.",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Đăng nhập",
+        cancelButtonText: "Hủy",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/login");
+        }
+      });
+      return;
+    }
+
     if (!id) {
       console.error("ID của bài đăng không hợp lệ:", id);
       return;

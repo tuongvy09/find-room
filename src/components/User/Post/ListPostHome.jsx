@@ -9,6 +9,7 @@ import arrowsIcon from "../../../assets/images/arrowIcon.png";
 import { useFavoriteToggle } from "../../../redux/postAPI";
 import "./ListPostHome.css";
 import RoomPost from "./RoomPost";
+import Swal from "sweetalert2";
 
 const ListPostHome = ({ post = [], title, favorite }) => {
   const navigate = useNavigate();
@@ -50,6 +51,33 @@ const ListPostHome = ({ post = [], title, favorite }) => {
     }
   };
 
+  const handleToggleFavorite = (postId, isFavorite) => {
+    if (!user) {
+      Swal.fire({
+        icon: "warning",
+        title: "Chưa đăng nhập",
+        text: "Vui lòng đăng nhập để thêm bài đăng vào danh sách yêu thích.",
+        confirmButtonText: "Đăng nhập",
+        showCancelButton: true,
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/login");
+        }
+      });
+      return;
+    }
+
+    toggleFavorite(postId, isFavorite)
+      .then(() => {
+        setFavorites(
+          isFavorite
+            ? favorites.filter((fav) => fav._id !== postId)
+            : [...favorites, { _id: postId }],
+        );
+      })
+      .catch((error) => console.error("Lỗi khi bật/tắt yêu thích:", error));
+  };
+
   const sliderSettings = {
     infinite: false,
     speed: 500,
@@ -73,17 +101,12 @@ const ListPostHome = ({ post = [], title, favorite }) => {
                 post={postItem}
                 onTitleClick={() => handleTitleClick(postItem.id)}
                 isFavorite={favorites.some((fav) => fav._id === postItem.id)}
-                onToggleFavorite={(id, isFavorite) => {
-                  toggleFavorite(
+                onToggleFavorite={() =>
+                  handleToggleFavorite(
                     postItem.id,
                     favorites.some((fav) => fav._id === postItem.id),
-                  );
-                  setFavorites(
-                    favorites.some((fav) => fav._id === postItem.id)
-                      ? favorites.filter((fav) => fav._id !== postItem.id)
-                      : [...favorites, { _id: postItem.id }],
-                  );
-                }}
+                  )
+                }
               />
               {index === Math.min(post.length, 5) - 1 && (
                 <button
