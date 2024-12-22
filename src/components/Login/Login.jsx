@@ -53,6 +53,14 @@ const Login = () => {
       <div className="form-main">
         <div className="form-content">
           <div className="form-wrapper">
+            <span
+              className="back-arrow"
+              onClick={() => navigate("/")}
+              aria-label="Quay lại trang chủ"
+            >
+              ←
+            </span>
+
             <div className="form-title"> Đăng nhập</div>
             <form onSubmit={handleLogin}>
               <div className="form-group">

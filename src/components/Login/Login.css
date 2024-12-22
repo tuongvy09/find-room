@@ -197,3 +197,28 @@
     max-width: calc(100% - 30px);
   }
 }
+
+.back-arrow {
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #1abc9c;
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease !important;
+}
+
+.back-arrow :hover {
+  background-color: #0b4f41 !important;
+  transform: scale(1.2) !important;
+}
+
+.form-wrapper {
+  position: relative;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
