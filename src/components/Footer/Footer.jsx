@@ -32,18 +32,30 @@ const Footer = () => {
             startIcon={
               <Facebook style={{ color: "#4caf50", fontSize: "50px" }} />
             }
+            component="a"
+            href="https://www.facebook.com/anh.tuyet.679568/"
+            target="_blank"
+            rel="noopener noreferrer"
           ></Button>
           <Button
             className="social-button"
             startIcon={
               <Instagram style={{ color: "#4caf50", fontSize: "50px" }} />
             }
+            component="a"
+            href="https://www.instagram.com/_atiet.t_/"
+            target="_blank"
+            rel="noopener noreferrer"
           ></Button>
           <Button
             className="social-button"
             startIcon={
               <LinkedIn style={{ color: "#4caf50", fontSize: "50px" }} />
             }
+            component="a"
+            href="https://www.linkedin.com/in/tuyet-nguyen-3ab193320/"
+            target="_blank"
+            rel="noopener noreferrer"
           ></Button>
         </Box>
       </Box>
