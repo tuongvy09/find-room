@@ -27,7 +27,7 @@ const AdminHeader = () => {
   };
 
   return (
-    <AppBar position="static" className="admin-header">
+    <AppBar position="fixed" className="admin-header">
       <Toolbar>
         <Typography
           className="admin-header-title"
