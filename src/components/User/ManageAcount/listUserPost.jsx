@@ -7,6 +7,7 @@ import ListPostVisible from "./ListPostVisible";
 import "./listUserPost.css";
 
 const ListUserPost = () => {
+  document.title = "Danh sách tin đăng";
   const [value, setValue] = useState("1");
 
   const handleChange = (event, newValue) => {

@@ -4,19 +4,23 @@ import {
   Badge,
   Box,
   Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
   Menu,
   MenuItem,
   Toolbar,
   Typography,
 } from "@mui/material";
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { createAxios } from "../../../createInstance";
 import { logout } from "../../../redux/apiRequest";
 import { logoutSuccess } from "../../../redux/authSlice";
 import Notification from "../Notification/Notification";
-import Swal from "sweetalert2";
 import "./Header.css";
 
 const Header = () => {
@@ -38,6 +42,7 @@ const Header = () => {
   ).length;
 
   const totalNotifications = notificationsList.length;
+  const [openDialog, setOpenDialog] = useState(false);
 
   useEffect(() => {
     if (currentUser && Array.isArray(currentUser.notifications)) {
@@ -73,21 +78,15 @@ const Header = () => {
 
   const handleAddPost = () => {
     if (!currentUser) {
-      Swal.fire({
-        title: "Cảnh báo!",
-        text: "Bạn cần đăng nhập để đăng tin mới.",
-        icon: "warning",
-        confirmButtonText: "Đăng nhập",
-        showCancelButton: true,
-        cancelButtonText: "Hủy",
-      }).then((result) => {
-        if (result.isConfirmed) {
-          navigate("/login");
-        }
-      });
+      setOpenDialog(true);
     } else {
       navigate("/AddPost");
     }
+  };
+  
+  const handleConfirmLogin = () => {
+    setOpenDialog(false);
+    navigate("/login");
   };
 
   const markAsRead = (notificationId) => {
@@ -98,6 +97,10 @@ const Header = () => {
           : notification,
       ),
     );
+  };
+
+  const handleCloseDialog = () => {
+    setOpenDialog(false);
   };
 
   return (
@@ -189,6 +192,23 @@ const Header = () => {
         onUpdateUnreadCount={handleUpdateUnreadCount}
       />
     </AppBar>
+    <Dialog open={openDialog} onClose={handleCloseDialog}>
+    <DialogTitle>Xác Nhận</DialogTitle>
+    <DialogContent>
+      <DialogContentText>
+        Bạn có muốn di chuyển đến trang đăng nhập để tiếp tục
+      </DialogContentText>
+    </DialogContent>
+    <DialogActions>
+      <Button onClick={handleCloseDialog} color="primary">
+        Hủy
+      </Button>
+      <Button onClick={handleConfirmLogin} color="secondary">
+        Xác nhận
+      </Button>
+    </DialogActions>
+  </Dialog>
+  </>
   );
 };
 

@@ -35,6 +35,7 @@ import "./PostDetail.css";
 import Swal from "sweetalert2";
 
 const PostDetail = ({ onToggleFavorite }) => {
+  document.title = "Chi tiết bài đăng";
   const { id } = useParams();
   const [post, setPost] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
