@@ -1,3 +1,7 @@
+.main-content {
+  padding-top: 64px;
+}
+
 .user-header-app-bar {
   background-color: white !important;
   padding: 0;
