@@ -85,8 +85,8 @@ const EditNewsForm = () => {
         content,
         author,
       });
+      navigate(`/manage-news/${id}`);
       toast.success("Cập nhật tin tức thành công!");
-      navigate("/admin-dashboard");
       dispatch(setSelectedMenu("newsList"));
     } catch (err) {
       console.error("Lỗi khi cập nhật tin tức:", err);
@@ -95,8 +95,8 @@ const EditNewsForm = () => {
   };
 
   const handleCancel = () => {
-    navigate("/admin-dashboard");
-    dispatch(setSelectedMenu("newsList"));
+    navigate(`/manage-news/${id}`);
+    // dispatch(setSelectedMenu("newsList"));
   };
 
   return (

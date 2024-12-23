@@ -9,7 +9,8 @@ const NewsDetailUser = () => {
   const [news, setNews] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  let axiosJWT = axios.create({
+
+  const axiosJWT = axios.create({
     baseURL: "https://befindrentalrooms-production.up.railway.app",
   });
 
@@ -33,14 +34,26 @@ const NewsDetailUser = () => {
         <div className="spinner"></div>
       </div>
     );
+
   if (error) return <p>{error}</p>;
 
+  const formattedDate = new Date(news.createdAt).toLocaleDateString("vi-VN", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+
   return (
-    <div className="news-detail-container">
-      <h2 className="news-detail-title">{news.title}</h2>
-      <p className="news-detail-date">{news.date}</p>
+    <div className="news-detail-page">
       <div className="news-detail-content">
-        <div dangerouslySetInnerHTML={{ __html: news.content }} />
+        <div className="news-content">
+          <h2 className="news-title">{news.title}</h2>
+          <div className="news-meta">
+            <span className="news-author">{news.author}</span>
+            <span className="news-date">, {formattedDate}</span>
+          </div>
+          <div dangerouslySetInnerHTML={{ __html: news.content }} />
+        </div>
       </div>
     </div>
   );
