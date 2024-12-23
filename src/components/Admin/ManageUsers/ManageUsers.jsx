@@ -156,9 +156,20 @@ const ManageUsers = () => {
     <Box className="manage-users">
       <ToastContainer position="top-right" autoClose={5000} />
       <Box className="content">
-        <Typography variant="h4" gutterBottom>
+        <Typography
+          variant="h4"
+          gutterBottom
+          sx={{
+            fontSize: "36px",
+            fontWeight: "bold",
+            color: "#333333",
+            marginBottom: "20px",
+            textAlign: "center",
+          }}
+        >
           Quản Lý Người Dùng
         </Typography>
+
         <TableContainer component={Paper}>
           <Table>
             <TableHead>
