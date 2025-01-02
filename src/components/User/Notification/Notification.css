@@ -3,7 +3,6 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  background-color: #d1f7d1;
 }
 
 .notification-title {
@@ -43,7 +42,6 @@
 }
 
 .spinner {
-  border: 5px solid #f3f3f3; /* Màu nền của spinner */
   border-top: 5px solid #1cb533; /* Màu của vòng tròn */
   border-radius: 50%;
   width: 50px;

@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { Navigate, useLocation } from "react-router-dom";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import { useFavoriteToggle } from "../../../redux/postAPI";
 import RoomPost from "../Post/RoomPost";
 import "./searchResultPage.css";
-import { useFavoriteToggle } from "../../../redux/postAPI";
-import axios from "axios";
-import { useSelector } from "react-redux";
-import Swal from "sweetalert2";
 
 const SearchResultsPage = () => {
   document.title = "Kết quả tìm kiếm";
@@ -17,6 +17,7 @@ const SearchResultsPage = () => {
   const [loading, setLoading] = useState(false);
   const [sortOption, setSortOption] = useState("default");
   const user = useSelector((state) => state.auth.login.currentUser);
+  const navigate = useNavigate();
   let axiosJWT = axios.create({
     baseURL: "https://befindrentalrooms-production.up.railway.app",
   });
@@ -113,6 +114,10 @@ const SearchResultsPage = () => {
     return pageNumbers;
   };
 
+  const handleTitleClick = (id) => {
+    navigate(`/posts/${id}`);
+  };
+
   return (
     <div className="search-results-page">
       <h2 className="search-results-page__title">Kết Quả Tìm Kiếm</h2>
@@ -126,6 +131,7 @@ const SearchResultsPage = () => {
             <RoomPost
               key={post.id}
               post={post}
+              onTitleClick={handleTitleClick}
               isFavorite={favorites.some((fav) => fav._id === post._id)}
               onToggleFavorite={() =>
                 handleToggleFavorite(
