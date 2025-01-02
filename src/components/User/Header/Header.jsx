@@ -105,7 +105,7 @@ const Header = () => {
 
   return (
     <>
-    <AppBar position="fixed" className="user-header-app-bar">
+    <AppBar position="static" className="user-header-app-bar">
       <Toolbar className="user-header-tool-bar">
         <Typography
           variant="h6"
