@@ -29,7 +29,6 @@ const Notification = ({
   const token = currentUser?.accessToken;
   const [notifications, setNotifications] = React.useState([]);
   const [visibleCount, setVisibleCount] = React.useState(5); // Quản lý số lượng thông báo hiển thị
-  const loading = useSelector((state) => state.notifications.loading);
   const error = useSelector((state) => state.notifications.error);
   const [refresh, setRefresh] = React.useState(false);
 
@@ -82,8 +81,8 @@ const Notification = ({
   const sortedNotifications =
     notifications && notifications.length > 0
       ? [...notifications].sort(
-          (a, b) => new Date(b.createdAt) - new Date(a.createdAt),
-        )
+        (a, b) => new Date(b.createdAt) - new Date(a.createdAt),
+      )
       : [];
 
   return (
@@ -106,15 +105,7 @@ const Notification = ({
         </Button>
       </Box>
       <hr className="notification-divider" />
-      {loading ? (
-        <MenuItem sx={{ justifyContent: "center", padding: "15px 0" }}>
-          <Typography variant="body2">
-            <div className="loading-container">
-              <div className="spinner"></div>
-            </div>
-          </Typography>
-        </MenuItem>
-      ) : error ? (
+      {error ? (
         <MenuItem sx={{ justifyContent: "center", padding: "15px 0" }}>
           <Typography variant="body2" color="error">
             {error}
